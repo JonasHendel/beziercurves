@@ -88,7 +88,7 @@ const Home = () => {
 				if (origin === 0) {
 					setT((t) => (t * 1000 + 1) / 1000);
 				}
-			}, 10);
+			}, 5);
 
 			return () => clearInterval(interval);
 		}
