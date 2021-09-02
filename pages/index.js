@@ -13,25 +13,24 @@ const quadraticPoints = [
 	{ x: 600, y: 400, active: false },
 ];
 
-
 const Home = () => {
-  const [controlPoints, setControlPoints] = useState(quadraticPoints);
+	const [controlPoints, setControlPoints] = useState(quadraticPoints);
 	const [animate, setAnimate] = useState(false);
 	const [origin, setOrigin] = useState(1);
 	const [t, setT] = useState(0.5);
-  
-  const lerp = (x1, x2) => (1 - t) * x1 + t * x2;
-  
-  const findPointsBetween = (pointArr) => {
-    let tempPointArr = [];
-    for (let i = 1; i < pointArr.length; i++) {
-      let p1 = pointArr[i];
-      let p2 = pointArr[i - 1];
-      let pointBetween = { x: lerp(p1.x, p2.x), y: lerp(p1.y, p2.y) };
-      tempPointArr.push(pointBetween);
-    }
-    return tempPointArr;
-  };
+
+	const lerp = (x1, x2) => (1 - t) * x1 + t * x2;
+
+	const findPointsBetween = (pointArr) => {
+		let tempPointArr = [];
+		for (let i = 1; i < pointArr.length; i++) {
+			let p1 = pointArr[i];
+			let p2 = pointArr[i - 1];
+			let pointBetween = { x: lerp(p1.x, p2.x), y: lerp(p1.y, p2.y) };
+			tempPointArr.push(pointBetween);
+		}
+		return tempPointArr;
+	};
 
 	const handlePointerDown = (e, i) => {
 		const el = e.target;
@@ -96,14 +95,18 @@ const Home = () => {
 	}, [t, origin, setT, animate]);
 
 	return (
-		<div className='w-screen h-screen bg-gray-900 flex flex-col items-center text-5xl overflow-hidden relative'>
+		<div className='w-screen h-screen bg-gray-900 flex flex-col items-center  overflow-hidden relative'>
 			<div className='flex flex-col mt-3 justify-center items-center'>
-				<h1 className='text-white'>Bézier Curves</h1>
-				<div className='flex w-full justify-between my-5'>
+				<a href="https://github.com/jonashendel" target="_blank" rel="noreferrer">
+					<img className='absolute top-5 right-5 h-9' src='./github.svg' alt='GitHub logo' />
+				</a>
+				<h1 className='text-white text-xl sm:text-5xl'>Bézier Curves</h1>
+				<div className='flex w-full justify-between mb-5'>
 					<Buttons setControlPoints={setControlPoints} setAnimate={setAnimate} controlPoints={controlPoints} animate={animate} />
 					<Slider t={t} setT={setT} />
 				</div>
-				<p className='text-white text-2xl'>Try to move the white controlPoints!</p>
+				<p className='text-white text-md sm:text-2xl hidden sm:block'>Try to move the white points!</p>
+				<p className='text-white text-md sm:text-2xl block sm:hidden'>Please use a desktop or tablet browser for full functionality</p>
 			</div>
 			{controlPoints.length === 3 && (
 				<QuadraticBezier

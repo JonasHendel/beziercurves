@@ -24,7 +24,7 @@ const QuadraticBezier = ({ controlPoints, t, findPointsBetween, handlePointer}) 
 				fill='none'
 			/>
 			{controlPoints.map((point, i) => (
-				<>{i > 0 && <path d={`M${point.x} ${point.y} L${controlPoints[i - 1].x} ${controlPoints[i - 1].y}`} stroke='white' strokeWidth='1' />}</>
+				<>{i > 0 && <path key={`0${i}`} d={`M${point.x} ${point.y} L${controlPoints[i - 1].x} ${controlPoints[i - 1].y}`} stroke='white' strokeWidth='1' />}</>
 			))}
 			{intermediatePoints.length > 0 && <path d={`M${intermediatePoints[0].x} ${intermediatePoints[0].y} L${intermediatePoints[1].x} ${intermediatePoints[1].y}`} stroke='#e31e63' strokeWidth='2' className='z-10' />}
 			<circle
@@ -36,7 +36,7 @@ const QuadraticBezier = ({ controlPoints, t, findPointsBetween, handlePointer}) 
 				r='5'
 			/>
 			{intermediatePoints.map((point, i) => (
-				<circle key={i} cx={point.x} cy={point.y} fill='#121826' strokeWidth='2' stroke='#e31e63' r='5' />
+				<circle key={`1${i}`} cx={point.x} cy={point.y} fill='#121826' strokeWidth='2' stroke='#e31e63' r='5' />
 			))}
 			{controlPoints.map((point, i) => (
 				<>
@@ -45,7 +45,7 @@ const QuadraticBezier = ({ controlPoints, t, findPointsBetween, handlePointer}) 
 						onPointerDown={(e) => handlePointerDown(e, i)}
 						onPointerUp={(e) => handlePointerUp(e, i)}
 						onPointerMove={(e) => handlePointerMove(e, i)}
-						key={i}
+						key={`2${i}`}
 						cx={point.x}
 						cy={point.y}
 						fill='#121826'
@@ -58,11 +58,11 @@ const QuadraticBezier = ({ controlPoints, t, findPointsBetween, handlePointer}) 
 						onPointerDown={(e) => pointerDown(e, i)}
 						onPointerUp={(e) => pointerUp(e, i)}
 						onPointerMove={(e) => pointerMove(e, i)}
-						key={i}
+						key={`3${i}`}
 						cx={point.x}
 						cy={point.y}
 						fill='#00ff0000'
-						r='20'
+						r='40'
 					/>
 				</>
 			))}
