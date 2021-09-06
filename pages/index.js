@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 import QuadraticBezier from '../components/QuadraticBezier';
 import CubicBezier from '../components/CubicBezier';
@@ -22,11 +21,11 @@ const Home = () => {
 	const lerp = (x1, x2) => (1 - t) * x1 + t * x2;
 
 	const findPointsBetween = (pointArr) => {
-		let tempPointArr = [];
+		const tempPointArr = [];
 		for (let i = 1; i < pointArr.length; i++) {
-			let p1 = pointArr[i];
-			let p2 = pointArr[i - 1];
-			let pointBetween = { x: lerp(p1.x, p2.x), y: lerp(p1.y, p2.y) };
+			const point1 = pointArr[i];
+			const point2 = pointArr[i - 1];
+			const pointBetween = { x: lerp(point1.x, point2.x), y: lerp(point1.y, point2.y) };
 			tempPointArr.push(pointBetween);
 		}
 		return tempPointArr;
@@ -39,16 +38,12 @@ const Home = () => {
 		const y = e.clientY - bbox.top;
 		el.setPointerCapture(e.pointerId);
 
-		let ps = controlPoints.slice();
+		const tempPointsArr = controlPoints.slice();
 
-		ps[i].active = true;
-		ps[i].offset = { x: x, y: y };
+		tempPointsArr[i].active = true;
+		tempPointsArr[i].offset = { x: x, y: y };
 
-		console.log('x', x);
-		console.log('offset', ps[i].offset);
-
-		console.log('psx', ps[i].x - (ps[i].offset.x - x));
-		setControlPoints(ps);
+		setControlPoints(tempPointsArr);
 	};
 	const handlePointerMove = (e, i) => {
 		const bbox = e.target.getBoundingClientRect();
@@ -56,20 +51,20 @@ const Home = () => {
 		const y = e.clientY - bbox.top;
 
 		if (controlPoints[i].active) {
-			let ps = controlPoints.slice();
-			if (ps[i].y - (ps[i].offset.y - y) < 5) return;
-			if (ps[i].y - (ps[i].offset.y - y) > 593) return;
-			ps[i].x = ps[i].x - (ps[i].offset.x - x);
-			ps[i].y = ps[i].y - (ps[i].offset.y - y);
-			setControlPoints(ps);
+			const tempPointsArr = controlPoints.slice();
+			if (tempPointsArr[i].y - (tempPointsArr[i].offset.y - y) < 5) return;
+			if (tempPointsArr[i].y - (tempPointsArr[i].offset.y - y) > 593) return;
+			tempPointsArr[i].x = tempPointsArr[i].x - (tempPointsArr[i].offset.x - x);
+			tempPointsArr[i].y = tempPointsArr[i].y - (tempPointsArr[i].offset.y - y);
+			setControlPoints(tempPointsArr);
 		}
 	};
 	const handlePointerUp = (e, i) => {
-		const ps = controlPoints.slice();
+		const tempPointsArr = controlPoints.slice();
 
-		ps[i].active = false;
+		tempPointsArr[i].active = false;
 
-		setControlPoints(ps);
+		setControlPoints(tempPointsArr);
 	};
 
 	// Animation
@@ -83,10 +78,10 @@ const Home = () => {
 		if (animate) {
 			const interval = setInterval(() => {
 				if (origin === 1) {
-					setT((t) => (t * 1000 - 1) / 1000);
+					setT((prevT) => (prevT * 1000 - 1) / 1000);
 				}
 				if (origin === 0) {
-					setT((t) => (t * 1000 + 1) / 1000);
+					setT((prevT) => (prevT * 1000 + 1) / 1000);
 				}
 			}, 5);
 
