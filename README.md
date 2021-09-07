@@ -10,7 +10,7 @@ A interactive visualization of Bézier curves
  </p>
 
 <p align="center"> 
-I was scrolling through YouTube when the video <a href="https://www.youtube.com/watch?v=aVwxzDHniEw&t=462s">The Beauty of Bézier Curves</a> popped up in my recommended feed. After I watched the video I had to agree with Freya Holmér, that Bézier curves truly are beautifull. After the I had finished the video I immediately started the project and worked on it everyday for 3 days after school.</p>
+I was scrolling through YouTube when the video <a href="https://www.youtube.com/watch?v=aVwxzDHniEw&t=462s">The Beauty of Bézier Curves</a> popped up in my recommended feed. After I watched the video I had to agree with Freya Holmér. Bézier curves truly are beautiful. After the I had finished the video I immediately started the project and worked on it everyday for 3 days after school.</p>
 
 
 ### Features
