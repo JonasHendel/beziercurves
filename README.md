@@ -13,19 +13,22 @@ A interactive visualization of Bézier curves
 I was scrolling through YouTube when the video <a href="https://www.youtube.com/watch?v=aVwxzDHniEw&t=462s">The Beauty of Bézier Curves</a> popped up in my recommended feed. After I watched the video I had to agree with Freya Holmér. Bézier curves truly are beautiful. After the I had finished the video I immediately started the project and worked on it everyday for 3 days after school.</p>
 
 
-<h2 id="aedfabf3-1c15-4c5e-a210-95a1470c43fb" class="">The features</h2>
+### The features
+---
 * Qubic Bézier
 * Quadratic Bézier
 * Interactivity
 * Animation
 
-<h2 id="dcbe8f21-c5e5-4a34-aef2-6b30b93add11" class="">The challenges</h2>
+### The challenges
+---
 * Really understanding the functionality of Bézier Curves
     - I used GeoGebra to play around with the formula
 * Automatically inreasing t until t === 1 and then decreasing until t === 0.
    - Due to JavaScript using double-precision floating numbers, t initially often ended up being something like 0.0001000100, after I fixed this (pretty easy), I had to implement a way of knowing if t "came from" 1 or 0. To fix this, I added an origin state, which was updated whenever t hit either 0 or 1. 
 
-<h2 id="a15d8bbf-0619-45ee-9e2f-9c0ba8eac998" class="">The critics</h2>
+### The critics
+---
 If I would have had more time I would have added following features:
 - Displaying the vector A: `(1-t)` A and the vector B `t*B`
 - Bézier Curves for n points
