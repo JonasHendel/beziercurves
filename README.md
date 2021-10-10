@@ -25,7 +25,7 @@ I was scrolling through YouTube when the video <a href="https://www.youtube.com/
 * Automatically inreasing t until t === 1 and then decreasing until t === 0.
    - Due to JavaScript using double-precision floating numbers, t initially often ended up being something like 0.0001000100, after I fixed this (pretty easy), I had to implement a way of knowing if t "came from" 1 or 0. To fix this, I added an origin state, which was updated whenever t hit either 0 or 1. 
 
-### Critics
+<h2 id="a15d8bbf-0619-45ee-9e2f-9c0ba8eac998" class="">The critics</h2>
 If I would have had more time I would have added following features:
 - Displaying the vector A: `(1-t)` A and the vector B `t*B`
 - Bézier Curves for n points
