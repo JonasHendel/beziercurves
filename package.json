@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cypress:open": "cypress open",
+    "cypress:run":"cypress run"
   },
   "dependencies": {
     "logrocket": "^2.0.0",
@@ -17,6 +19,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.3.3",
+    "cypress": "^8.6.0",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
     "postcss": "^8.3.6",

@@ -13,7 +13,7 @@ const QuadraticBezier = ({ controlPoints, t, findPointsBetween, handlePointer })
 
 	useEffect(() => {
 		setIntermediatePoints(findPointsBetween(controlPoints));
-	}, [controlPoints, t]);
+	}, [controlPoints, t, findPointsBetween]);
 
 	return (
 		<svg xmlns='http://www.w3.org/2000/svg' width='full' height='full' viewBox='0 0 841.9 595.3'>

@@ -14,11 +14,11 @@ const CubicBezier = ({ controlPoints, findPointsBetween, t, handlePointer }) => 
 
 	useEffect(() => {
 		setIntermediatePoints1(findPointsBetween(controlPoints));
-	}, [controlPoints, t]);
+	}, [controlPoints, t, findPointsBetween]);
 
 	useEffect(() => {
 		setIntermediatePoints2(findPointsBetween(intermediatePoints1));
-	}, [intermediatePoints1]);
+	}, [intermediatePoints1, findPointsBetween]);
 
 
 	return (
